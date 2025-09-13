@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Together4Feed - Fighting Food Waste, Feeding Communities</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #2E8B57;
+            --secondary: #FF6B35;
+            --accent: #3A7CA5;
+            --light: #F8F9FA;
+            --dark: #343A40;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #e55a2b;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary);
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #666;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+        
+        /* Features Section */
+        .features {
+            background-color: white;
+        }
+        
+        .feature-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 30px;
+            width: 100%;
+            max-width: 350px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        /* Impact Section */
+        .impact {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .stat {
+            padding: 20px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1.2rem;
+        }
+        
+        /* Testimonial Cards */
+        .testimonial-card {
+            background-color: white;
+            color: var(--dark);
+            border-radius: 10px;
+            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 0 auto;
+            text-align: left;
+        }
+        
+        .testimonial-card blockquote {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #444;
+        }
+        
+        .testimonial-card p {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        /* Media Gallery Section */
+        .gallery {
+            background-color: var(--light);
+        }
+        
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .filter-btn {
+            padding: 8px 20px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            cursor: pointer;
+            height: 250px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-item-caption {
+            transform: translateY(0);
+        }
+        
+        /* Tech Showcase Section */
+        .tech-showcase {
+            background: linear-gradient(135deg, #2c3e50, #4a7b9d);
+            color: white;
+        }
+        
+        .tech-feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .tech-feature:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .tech-content {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+        
+        .tech-visual {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .tech-visual i {
+            font-size: 8rem;
+            opacity: 0.7;
+            margin-bottom: 20px;
+        }
+        
+        .dashboard-mockup {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .dashboard-stats {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-box {
+            background: rgba(255,255,255,0.15);
+            padding: 15px;
+            border-radius: 8px;
+            flex: 1;
+            min-width: 120px;
+        }
+        
+        .stat-box h4 {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            opacity: 0.8;
+        }
+        
+        .stat-box p {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .map-container {
+            height: 200px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .map-point {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: var(--secondary);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .map-point::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: var(--secondary);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.7; }
+            100% { transform: scale(3); opacity: 0; }
+        }
+        
+        /* Join Form */
+        .join-form {
+            background-color: white;
+        }
+        
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        form input, form select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .whatsapp-opt {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .whatsapp-opt input {
+            width: auto;
+            margin-right: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1100;
+            overflow: auto;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+            display: block;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+        }
+        
+        .modal-caption {
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 1.2rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .feature-card {
+                max-width: 100%;
+            }
+            
+            .tech-feature, .tech-feature:nth-child(even) {
+                flex-direction: column;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Together<span>4Feed</span></a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#for-donors">For Donors</a></li>
+                    <li><a href="#for-ngos">For NGOs</a></li>
+                    <li><a href="#gallery">Impact Gallery</a></li>
+                    <li><a href="#tech">Technology</a></li>
+                    <li><a href="#join">Join Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Turning surplus into service. Feeding hope, not landfills.</h1>
+                <p>Together4Feed is a zero-cost, community-powered network that connects food donors with NGOs to rescue edible surplus food and deliver it to hungry people across Lucknow.</p>
+                <a href="#join" class="btn">Join the Movement</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Food Donors Section -->
+    <section class="features" id="for-donors">
+        <div class="container">
+            <div class="section-title">
+                <h2>🍽️ For Food Donors</h2>
+                <p>Restaurants, Hotels, Messes - Join us in the fight against hunger and food waste</p>
+            </div>
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>How to Join</h3>
+                    <p>Join our WhatsApp group to receive and post food availability alerts. Simply send "JOIN" to our number and our coordinator will add you.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>Benefits</h3>
+                    <ul>
+                        <li>CSR alignment and community goodwill</li>
+                        <li>Brand promotion as a "Compassionate Contributor"</li>
+                        <li>Zero-cost, hassle-free pickup by NGO partners</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <h3>Food Alert Format</h3>
+                    <p>When posting food availability, use this format:<br>
+                    "TYPE: [Veg/Non-veg]<br>
+                    QUANTITY: [Number of meals]<br>
+                    LOCATION: [Your address]<br>
+                    TIME: [Pickup time]"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- For NGO Partners Section -->
+    <section class="features alt-bg" id="for-ngos">
+        <div class="container">
+            <div class="section-title">
+                <h2>🧑‍🤝‍🧑 For NGO Partners</h2>
+                <p>Join our network to receive food donations and serve those in need</p>
+            </div>
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>How to Join</h3>
+                    <p>Join our WhatsApp group to receive food alerts. Send "NGO JOIN" to our number with your organization details.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Best Practices</h3>
+                    <ul>
+                        <li>Ensure timely pickups</li>
+                        <li>Use clean, reusable utensils for safe transport</li>
+                        <li>Deliver food respectfully to beneficiaries</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-download"></i>
+                    </div>
+                    <h3>Resources</h3>
+                    <p>Download our volunteer guide and checklist for safe food handling and distribution practices.</p>
+                    <a href="#" class="btn">Download Guide</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Impact Gallery</h2>
+                <p>See how your food donations make a difference in people's lives</p>
+            </div>
+            
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="donations">Food Donations</button>
+                <button class="filter-btn" data-filter="distribution">Distribution</button>
+                <button class="filter-btn" data-filter="community">Community Impact</button>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" data-category="donations">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Food packaging at restaurant">
+                    <div class="gallery-item-caption">
+                        <p>Restaurant staff packaging surplus food for donation</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="distribution">
+                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Food distribution">
+                    <div class="gallery-item-caption">
+                        <p>NGO volunteers distributing meals to community members</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="community">
+                    <img src="https://images.unsplash.com/photo-1593113630400-ea4288922497?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Happy children receiving food">
+                    <div class="gallery-item-caption">
+                        <p>Children enjoying nutritious meals provided by donations</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="donations">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Chef preparing food">
+                    <div class="gallery-item-caption">
+                        <p>Hotel chef preparing surplus food for donation</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="distribution">
+                    <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Food transportation">
+                    <div class="gallery-item-caption">
+                        <p>Food being transported in hygienic containers</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="community">
+                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Elderly receiving food">
+                    <div class="gallery-item-caption">
+                        <p>Elderly community members receiving nutritious meals</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Showcase Section -->
+    <section class="tech-showcase" id="tech">
+        <div class="container">
+            <div class="section-title">
+                <h2>Advanced Technology Platform</h2>
+                <p>Our high-tech solutions make food rescue efficient and transparent</p>
+            </div>
+            
+            <div class="tech-feature">
+                <div class="tech-content">
+                    <h3>Real-Time Tracking Dashboard</h3>
+                    <p>Our advanced dashboard provides live updates on food rescue operations across Lucknow. Donors can see exactly when their food is picked up and where it's being distributed.</p>
+                    <ul>
+                        <li>Live status updates for all food transfers</li>
+                        <li>Estimated time of arrival for deliveries</li>
+                        <li>Digital documentation of all transactions</li>
+                        <li>Impact metrics updated in real-time</li>
+                    </ul>
+                </div>
+                <div class="tech-visual">
+                    <div class="dashboard-mockup">
+                        <div class="dashboard-header">
+                            <h3>Live Food Rescue Operations</h3>
+                            <span>Updated: Just now</span>
+                        </div>
+                        <div class="dashboard-stats">
+                            <div class="stat-box">
+                                <h4>Active Today</h4>
+                                <p>17</p>
+                            </div>
+                            <div class="stat-box">
+                                <h4>Meals Saved</h4>
+                                <p>524</p>
+                            </div>
+                            <div class="stat-box">
+                                <h4>Completed</h4>
+                                <p>9</p>
+                            </div>
+                        </div>
+                        <div class="map-container">
+                            <div class="map-point" style="top: 30%; left: 25%;"></div>
+                            <div class="map-point" style="top: 60%; left: 45%;"></div>
+                            <div class="map-point" style="top: 75%; left: 70%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tech-feature">
+                <div class="tech-content">
+                    <h3>Smart Matching Algorithm</h3>
+                    <p>Our proprietary algorithm matches food donations with NGOs based on multiple factors to ensure efficient distribution and maximum impact.</p>
+                    <ul>
+                        <li>Location-based matching for shortest routes</li>
+                        <li>Capacity matching based on NGO capabilities</li>
+                        <li>Food type preferences and requirements</li>
+                        <li>Historical performance and reliability data</li>
+                    </ul>
+                </div>
+                <div class="tech-visual">
+                    <i class="fas fa-project-diagram"></i>
+                    <p>AI-powered matching system</p>
+                </div>
+            </div>
+            
+            <div class="tech-feature">
+                <div class="tech-content">
+                    <h3>Blockchain Verification</h3>
+                    <p>We use blockchain technology to create an immutable record of all food donations and distributions, providing complete transparency to donors.</p>
+                    <ul>
+                        <li>Tamper-proof records of all transactions</li>
+                        <li>Verifiable impact reporting</li>
+                        <li>Automated CSR compliance documentation</li>
+                        <li>Transparent supply chain from donor to recipient</li>
+                    </ul>
+                </div>
+                <div class="tech-visual">
+                    <i class="fas fa-link"></i>
+                    <p>Blockchain verified transactions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact" id="stories">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Impact</h2>
+                <p>Making a difference one meal at a time</p>
+            </div>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">10,000+</div>
+                    <div class="stat-label">Meals Served</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Partner Organizations</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">5 tons+</div>
+                    <div class="stat-label">Food Saved</div>
+                </div>
+            </div>
+            <div class="section-title">
+                <h2>Success Stories</h2>
+                <p>Hear from our donors and NGO partners</p>
+            </div>
+            <div class="feature-cards">
+                <div class="testimonial-card">
+                    <blockquote>"Joining Together4Feed has allowed our restaurant to contribute to the community without any additional overhead. The process is seamless and rewarding."</blockquote>
+                    <p>- Rajesh, Restaurant Owner</p>
+                </div>
+                <div class="testimonial-card">
+                    <blockquote>"The food we receive through this initiative has helped us feed 200 children daily at our shelter home. This partnership is a blessing."</blockquote>
+                    <p>- Sister Maria, NGO Director</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Form Section -->
+    <section class="join-form" id="join">
+        <div class="container">
+            <div class="section-title">
+                <h2>Join Our Movement</h2>
+                <p>Be part of the solution against food waste and hunger</p>
+            </div>
+            <form id="joinForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="organization">Organization Type</label>
+                    <select id="organization" name="organization" required>
+                        <option value="">Select one...</option>
+                        <option value="restaurant">Restaurant</option>
+                        <option value="hotel">Hotel</option>
+                        <option value="mess">Mess</option>
+                        <option value="ngo">NGO</option>
+                        <option value="volunteer">Individual Volunteer</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="orgName">Organization Name (if applicable)</label>
+                    <input type="text" id="orgName" name="orgName">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Contact Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div class="form-group">
+                    <div class="whatsapp-opt">
+                        <input type="checkbox" id="whatsapp" name="whatsapp" checked>
+                        <label for="whatsapp">Add me to the WhatsApp group for alerts</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-envelope"></i> together4feed@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> [Your Phone Number]</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Lucknow, India</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <p>Stay updated with our latest activities and impact</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Our Mission</h3>
+                    <p>Together4Feed is a grassroots initiative to rescue good food and serve those who need it most—powered by kindness, coordination, and community.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Together4Feed. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="modalCaption" class="modal-caption"></div>
+    </div>
+
+    <script>
+        // Form submission handling
+        document.getElementById('joinForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your interest! We will contact you shortly to complete your registration.');
+            this.reset();
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Gallery filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Get filter value
+                const filterValue = button.getAttribute('data-filter');
+                
+                // Show/hide gallery items based on filter
+                galleryItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Modal functionality for gallery
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const captionText = document.getElementById('modalCaption');
+        const closeModal = document.querySelector('.modal-close');
+        
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                modal.style.display = 'flex';
+                modalImg.src = item.querySelector('img').src;
+                captionText.innerHTML = item.querySelector('.gallery-item-caption p').innerHTML;
+            });
+        });
+        
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Animate stats counter
+        const statElements = document.querySelectorAll('.stat-number');
+        let animated = false;
+        
+        function animateStats() {
+            if (animated) return;
+            
+            const statsSection = document.getElementById('stories');
+            const position = statsSection.getBoundingClientRect();
+            
+            // If stats section is in viewport
+            if (position.top < window.innerHeight && position.bottom >= 0) {
+                animated = true;
+                
+                statElements.forEach(stat => {
+                    const target = parseInt(stat.textContent);
+                    let count = 0;
+                    const duration = 2000; // ms
+                    const frameDuration = 1000 / 60; // 60 fps
+                    const totalFrames = Math.round(duration / frameDuration);
+                    const easeOutQuad = t => t * (2 - t);
+                    
+                    const counter = setInterval(() => {
+                        count++;
+                        const progress = easeOutQuad(count / totalFrames);
+                        const current = Math.round(target * progress);
+                        
+                        stat.textContent = current + (stat.textContent.includes('+') ? '+' : '');
+                        
+                        if (count === totalFrames) clearInterval(counter);
+                    }, frameDuration);
+                });
+            }
+        }
+        
+        window.addEventListener('scroll', animateStats);
+        // Trigger once on load in case stats are already in view
+        animateStats();
+    </script>
+</body>
+</html>
